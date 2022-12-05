@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Description>Bioformats java library converted to .NET6 with IKVM </Description>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <RepositoryType>bio-formats; ome; omero;</RepositoryType>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>6.11.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Readme.md~RF1304c5f1.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="bioformats_package">
+      <HintPath>..\bioformats_package.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
