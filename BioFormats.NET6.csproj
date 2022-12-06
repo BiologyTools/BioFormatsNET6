@@ -8,18 +8,27 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Description>Bioformats java library converted to .NET6 with IKVM </Description>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
-    <RepositoryType>bio-formats; ome; omero;</RepositoryType>
+    <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>6.11.1</Version>
+    <Version>1.0</Version>
+    <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
+    <PackageTags>bio-formats; ome; omero;</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Readme.md~RF1304c5f1.TMP" />
+    <None Remove="bioformats_package.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bioformats_package.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="bioformats_package">
-      <HintPath>..\bioformats_package.dll</HintPath>
+      <HintPath>bioformats_package.dll</HintPath>
     </Reference>
   </ItemGroup>
 
