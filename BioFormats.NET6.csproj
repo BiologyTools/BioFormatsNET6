@@ -11,7 +11,7 @@
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>6.13</Version>
+    <Version>6.13.1</Version>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
