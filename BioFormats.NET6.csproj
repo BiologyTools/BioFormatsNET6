@@ -6,12 +6,12 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 6.14.0 java library converted to .NET6 with IKVM 8.6.0. Add nuget IKVM to your project to use this library.</Description>
-    <PackageReleaseNotes>Bioformats 6.14.0, IKVM 8.6.0 update.</PackageReleaseNotes>
+    <Description>Bioformats 7.0.0 java library converted to .NET6 with IKVM 8.6.2. Add nuget IKVM to your project to use this library.</Description>
+    <PackageReleaseNotes>Bioformats 7.0.0, IKVM 8.6.2 update.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>6.14.1</Version>
+    <Version>7.0.0</Version>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
