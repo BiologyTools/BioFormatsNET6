@@ -1,12 +1,29 @@
-Bioformats 7.0.1 (https://www.openmicroscopy.org/bio-formats/) Built with ikvm 8.6.4 for .NET6.
-Add nuget package IKVM to your project to use this library.
+Bioformats 7.0.1 (https://www.openmicroscopy.org/bio-formats/) Built with IKVM Maven SDK for .NET6.
 
-# Building
-Generated with the latest version of bioformats_package.jar with ikvmc.exe. As well as the following dependencies placed in folder "dependencies" in the same folder as ikvmc.exe the dependencies can be downloaded from Maven.
-- google-collect.1.0.jar
-
-Then running ikvmc.exe from command line with the following command:
-
-```./ikvmc bioformats_package.jar -target:library -recurse:dependencies *> output.txt```
-
-This will generate the dll bioformats_package.dll.
+#Installation
+To add the bioformats_package using IKVM.Maven add the following to your project file.
+```
+<PropertyGroup>
+  <MavenAdditionalRepositories>ome=https://artifacts.openmicroscopy.org/artifactory/maven/;edu.ucar=https://maven.scijava.org/content/repositories/public/;</MavenAdditionalRepositories>
+</PropertyGroup> 
+<ItemGroup>
+    <MavenReference Include="bioformats_package">
+      <GroupId>ome</GroupId>
+      <ArtifactId>bioformats_package</ArtifactId>
+      <Version>7.0.1</Version>
+    </MavenReference>
+    <MavenReference Include="cdm-core">
+      <GroupId>edu.ucar</GroupId>
+      <ArtifactId>cdm-core</ArtifactId>
+      <Version>5.3.3</Version>
+    </MavenReference>
+</ItemGroup>
+<Target Name="FixIkvmReference" AfterTargets="_GetMavenIkvmReferenceItems">
+    <Message Importance="high" Text="$(IkvmMavenSdkDir)" />
+    <ItemGroup>
+        <IkvmReferenceItem Condition="'%(Identity)'=='maven$org.json:json:20230227'">
+            <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        </IkvmReferenceItem>
+    </ItemGroup>
+</Target>
+```

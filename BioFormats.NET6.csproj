@@ -6,27 +6,43 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 7.0.1 java library converted to .NET6 with IKVM 8.6.4. Add nuget IKVM 8.6.4 to your project to use this library.</Description>
-    <PackageReleaseNotes>Bioformats 7.0.1, IKVM 8.6.4 update.</PackageReleaseNotes>
+    <Description>Bioformats 7.0.1. Built with IKVM Maven SDK for .NET6 x64 &amp; arm64. Follow readme installation instructions.</Description>
+    <PackageReleaseNotes>Bioformats 7.0.1, IKVM 8.7.0 update.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>7.0.1</Version>
+    <Version>7.0.1.1</Version>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
-  </PropertyGroup>
+  </PropertyGroup> 
 
+<PropertyGroup>
+  <MavenAdditionalRepositories>ome=https://artifacts.openmicroscopy.org/artifactory/maven/;edu.ucar=https://maven.scijava.org/content/repositories/public/;</MavenAdditionalRepositories>
+</PropertyGroup>
+<ItemGroup>
+    <MavenReference Include="bioformats_package">
+      <GroupId>ome</GroupId>
+      <ArtifactId>bioformats_package</ArtifactId>
+      <Version>7.0.1</Version>
+    </MavenReference>
+    <MavenReference Include="cdm-core">
+      <GroupId>edu.ucar</GroupId>
+      <ArtifactId>cdm-core</ArtifactId>
+      <Version>5.3.3</Version>
+    </MavenReference>
+</ItemGroup>
+<Target Name="FixIkvmReference" AfterTargets="_GetMavenIkvmReferenceItems">
+    <Message Importance="high" Text="$(IkvmMavenSdkDir)" />
+    <ItemGroup>
+        <IkvmReferenceItem Condition="'%(Identity)'=='maven$org.json:json:20230227'">
+            <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        </IkvmReferenceItem>
+    </ItemGroup>
+</Target>
+  
   <ItemGroup>
-    <None Remove="bioformats_package.dll" />
-    <None Remove="Readme.md" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="bioformats_package.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Readme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -34,9 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="bioformats_package">
-      <HintPath>bioformats_package.dll</HintPath>
-    </Reference>
+    <PackageReference Include="IKVM" Version="8.7.0" />
+    <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.0" />
   </ItemGroup>
-
 </Project>
