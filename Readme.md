@@ -1,6 +1,7 @@
 Bioformats 7.0.1 (https://www.openmicroscopy.org/bio-formats/) Built with IKVM 8.7.1 Maven SDK for .NET6.
 
 Installation: Add this to your project file.
+```
 <PropertyGroup>
   <MavenAdditionalRepositories>ome=https://artifacts.openmicroscopy.org/artifactory/maven/;edu.ucar=https://maven.scijava.org/content/repositories/public/;</MavenAdditionalRepositories>
 </PropertyGroup> 
@@ -16,3 +17,4 @@ Installation: Add this to your project file.
       <Version>5.3.3</Version>
     </MavenReference>
 </ItemGroup>
+```
