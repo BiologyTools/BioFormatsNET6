@@ -6,12 +6,12 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 7.0.1. Built with IKVM Maven SDK for .NET6 x64 &amp; arm64. Follow readme installation instructions.</Description>
-    <PackageReleaseNotes>Bioformats 7.0.1, IKVM 8.7.0 update.</PackageReleaseNotes>
+    <Description>Bioformats 7.0.1. Built with IKVM Maven SDK for .NET6 x64 &amp; arm64.</Description>
+    <PackageReleaseNotes>Included all Bioformats_package.jar dll's.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>7.0.1.1</Version>
+    <Version>7.0.1.2</Version>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
@@ -33,14 +33,317 @@
       <Version>5.3.3</Version>
     </MavenReference>
 </ItemGroup>
-<Target Name="FixIkvmReference" AfterTargets="_GetMavenIkvmReferenceItems">
-    <Message Importance="high" Text="$(IkvmMavenSdkDir)" />
-    <ItemGroup>
-        <IkvmReferenceItem Condition="'%(Identity)'=='maven$org.json:json:20230227'">
-            <AssemblyVersion>1.0.0.0</AssemblyVersion>
-        </IkvmReferenceItem>
-    </ItemGroup>
-</Target>
+
+  <ItemGroup>
+    <Content Include="OME/aircompressor.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/android.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/animal.sniffer.annotations.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/base.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/bio.formats.plugins.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/bio.formats.tools.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/cdm.core.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/com.esotericsoftware.kryo.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/com.esotericsoftware.minlog.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/com.esotericsoftware.reflectasm.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/com.fasterxml.jackson.annotation.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/com.google.common.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/commons.lang.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/commons.logging.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/ejb.api.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/error.prone.annotations.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/failureaccess.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/formats.api.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/formats.bsd.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/formats.gpl.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/google.http.client.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/google.http.client.xml.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/guava.bootstrap.jdk5.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/guava.jdk5.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/hadoop.apache.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/httpservices.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/ij.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/j2objc.annotations.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jackson.core.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jackson.databind.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jcommander.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jdom2.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jgoodies.common.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jgoodies.forms.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jhdf5.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jsr305.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/jxrlib.all.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/listenablefuture.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/metadata.extractor.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/metakit.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/minio.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/mipav.stubs.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/okhttp.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/okio.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/ome.codecs.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/ome.common.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/ome.jai.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/ome.mdbtools.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/ome.poi.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/ome.xml.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.apache.commons.codec.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.apache.commons.io.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.apache.commons.lang3.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.apache.httpcomponents.httpclient.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.apache.httpcomponents.httpcore.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.apache.httpcomponents.httpmime.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.checkerframework.checker.qual.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.joda.time.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.json.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.objenesis.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.scijava.nativelib.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/org.slf4j.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/perf4j.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/protobuf.java.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/re2j.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/serializer.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/servlet.api.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/snakeyaml.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/specification.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/sqlite.jdbc.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/turbojpeg.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/xalan.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/xercesImpl.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/xml.apis.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/xmlParserAPIs.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/xmpcore.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="OME/xpp3.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net6.0</PackagePath>
+    </Content>
+  </ItemGroup>
   
   <ItemGroup>
     <Content Include="Readme.md">
@@ -50,7 +353,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="IKVM" Version="8.7.0" />
-    <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.0" />
+    <PackageReference Include="IKVM" Version="8.7.1" />
+    <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.1" />
   </ItemGroup>
 </Project>
