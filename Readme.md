@@ -2,7 +2,9 @@
 [![NuGet version (BioFormatsNET6)](https://img.shields.io/nuget/dt/BioFormats.NET6?color=g)](https://www.nuget.org/packages/BioFormats.NET6/7.1.0)
 
 Bioformats 7.1.0 (https://www.openmicroscopy.org/bio-formats/) Built with IKVM 8.7.3 Maven SDK for .NET6.
-For x64 use the nuget package version of the project by installing it from [![NuGet version (BioFormatsNET6)](https://img.shields.io/nuget/v/BioFormats.NET6.svg)](https://www.nuget.org/packages/BioFormats.NET6/7.1.0.1)
+
+For x64 use the nuget package version of the project by installing it from NuGet [![NuGet version (BioFormatsNET6)](https://img.shields.io/nuget/v/BioFormats.NET6.svg)](https://www.nuget.org/packages/BioFormats.NET6/7.1.0.1)
+
 For ARM use the Maven version of the project by installing the latest IKVM Maven SDK and adding this to your project file:
 ```
 <PropertyGroup>
