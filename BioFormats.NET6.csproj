@@ -6,30 +6,47 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 7.1.0. Built with IKVM for .NET6 x64</Description>
-    <PackageReleaseNotes>IKVM bug fix for compressed images.</PackageReleaseNotes>
+    <Description>Bioformats 7.1.0. Built with IKVM 8.7.5 for .NET6 x64, Arm64.</Description>
+    <PackageReleaseNotes>IKVM update and full Arm64 support.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>7.1.0.1</Version>
+    <Version>7.1.0.2</Version>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
-  </PropertyGroup> 
+  </PropertyGroup>
   <ItemGroup>
     <Content Include="bioformats_package.dll">
-      <Pack>true</Pack>
-      <PackagePath>lib\net6.0</PackagePath>
+      <Pack>True</Pack>
+      <PackagePath>\lib\net6.0</PackagePath>
+    </Content>
+    <Content Include="google.collect.dll">
+      <Pack>True</Pack>
+      <PackagePath>\lib\net6.0</PackagePath>
     </Content>
     <Content Include="Readme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </Content>
-  </ItemGroup>
-
+  </ItemGroup> 
   <ItemGroup>
-    <PackageReference Include="IKVM" Version="8.7.3" />
-    <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.3" />
+    <PackageReference Include="IKVM" Version="8.7.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <IkvmReference Include="bioformats_package.jar">
+      <AssemblyName>bioformats_package</AssemblyName>
+      <AssemblyVersion>7.1.0.0</AssemblyVersion>
+      <AssemblyFileVersion>7.1.0.0</AssemblyFileVersion>
+      <DisableAutoAssemblyName>true</DisableAutoAssemblyName>
+      <DisableAutoAssemblyVersion>true</DisableAutoAssemblyVersion>
+      <FallbackAssemblyName>bioformats_package</FallbackAssemblyName>
+      <FallbackAssemblyVersion>7.1.0.0</FallbackAssemblyVersion>
+      <Aliases>bioformats_package</Aliases>
+      <Compile>google-collect-1.0.jar</Compile>
+      <References>google-collect-1.0.jar</References>
+    </IkvmReference>
+    <IkvmReference Include="google-collect-1.0.jar" />
   </ItemGroup>
 </Project>
