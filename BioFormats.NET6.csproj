@@ -6,12 +6,12 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 7.2.0. Built with IKVM 8.7.5 for .NET6 x64, Arm64.</Description>
-    <PackageReleaseNotes>Bioformats 7.2.0 update.</PackageReleaseNotes>
+    <Description>Bioformats 7.3.0. Built with IKVM 8.8.0 for .NET6 x64, Arm64.</Description>
+    <PackageReleaseNotes>Bioformats 7.3.0 update.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>7.2.0.0</Version>
+    <Version>7.3.0.0</Version>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
@@ -32,17 +32,17 @@
     </Content>
   </ItemGroup> 
   <ItemGroup>
-    <PackageReference Include="IKVM" Version="8.7.5" />
+    <PackageReference Include="IKVM" Version="8.8.0" />
   </ItemGroup>
   <ItemGroup>
     <IkvmReference Include="bioformats_package.jar">
       <AssemblyName>bioformats_package</AssemblyName>
-      <AssemblyVersion>7.2.0.0</AssemblyVersion>
-      <AssemblyFileVersion>7.2.0.0</AssemblyFileVersion>
+      <AssemblyVersion>7.3.0.0</AssemblyVersion>
+      <AssemblyFileVersion>7.3.0.0</AssemblyFileVersion>
       <DisableAutoAssemblyName>true</DisableAutoAssemblyName>
       <DisableAutoAssemblyVersion>true</DisableAutoAssemblyVersion>
       <FallbackAssemblyName>bioformats_package</FallbackAssemblyName>
-      <FallbackAssemblyVersion>7.2.0.0</FallbackAssemblyVersion>
+      <FallbackAssemblyVersion>7.3.0.0</FallbackAssemblyVersion>
       <Aliases>bioformats_package</Aliases>
       <Compile>google-collect-1.0.jar</Compile>
       <References>google-collect-1.0.jar</References>
