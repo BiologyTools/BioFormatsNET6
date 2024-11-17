@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BioFormats.NET6", "BioFormats.NET6.csproj", "{D7001D7B-BF25-4131-B28F-47D4F83D4464}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "..\TestApp\TestApp\TestApp.csproj", "{BD0298D6-7189-4CCC-A438-BFC7885DAD7C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{D7001D7B-BF25-4131-B28F-47D4F83D4464}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7001D7B-BF25-4131-B28F-47D4F83D4464}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7001D7B-BF25-4131-B28F-47D4F83D4464}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD0298D6-7189-4CCC-A438-BFC7885DAD7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD0298D6-7189-4CCC-A438-BFC7885DAD7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD0298D6-7189-4CCC-A438-BFC7885DAD7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD0298D6-7189-4CCC-A438-BFC7885DAD7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
