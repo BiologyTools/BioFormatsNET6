@@ -6,12 +6,12 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 8.0.1. Built with IKVM 8.10.3 for .NET6 x64, Arm64.</Description>
-    <PackageReleaseNotes>Bioformats 8.0.1 update.</PackageReleaseNotes>
+    <Description>Bioformats 8.1.0. Built with IKVM 8.10.3 for .NET6 x64, Arm64.</Description>
+    <PackageReleaseNotes>Bioformats 8.1.0 update.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>8.0.1</Version>
+    <Version>8.1.0</Version>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
@@ -40,23 +40,23 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </Content>
-  </ItemGroup> 
-  <ItemGroup>
-    <PackageReference Include="IKVM" Version="8.10.3" />
   </ItemGroup>
   <ItemGroup>
     <IkvmReference Include="bioformats_package.jar">
       <AssemblyName>bioformats_package</AssemblyName>
-      <AssemblyVersion>8.0.1</AssemblyVersion>
-      <AssemblyFileVersion>8.0.1</AssemblyFileVersion>
+      <AssemblyVersion>8.1.0</AssemblyVersion>
+      <AssemblyFileVersion>8.1.0</AssemblyFileVersion>
       <DisableAutoAssemblyName>true</DisableAutoAssemblyName>
       <DisableAutoAssemblyVersion>true</DisableAutoAssemblyVersion>
       <FallbackAssemblyName>bioformats_package</FallbackAssemblyName>
-      <FallbackAssemblyVersion>8.0.1</FallbackAssemblyVersion>
+      <FallbackAssemblyVersion>8.1.0</FallbackAssemblyVersion>
       <Aliases>bioformats_package</Aliases>
       <Compile>google-collect-1.0.jar</Compile>
       <References>google-collect-1.0.jar</References>
     </IkvmReference>
     <IkvmReference Include="google-collect-1.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="IKVM" Version="8.11.0" />
   </ItemGroup>
 </Project>
