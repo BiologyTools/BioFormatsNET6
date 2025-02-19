@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 8.1.0. Built with IKVM 8.10.3 for .NET6 x64, Arm64.</Description>
+    <Description>Bioformats 8.1.0. Built with IKVM 8.11 for .NET6 x64, Arm64.</Description>
     <PackageReleaseNotes>Bioformats 8.1.0 update.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
@@ -17,12 +17,6 @@
     <PackageTags>bio-formats; ome; omero;</PackageTags>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="bioformats_package.dll" />
-    <None Remove="google.collect.dll" />
-  </ItemGroup>
-
   <ItemGroup>
     <Content Include="bioformats_package.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
