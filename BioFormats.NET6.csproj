@@ -12,6 +12,7 @@
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>8.2.0</Version>
+	<PackageVersion>8.2.0</PackageVersion>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
@@ -28,6 +29,10 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<Pack>True</Pack>
 			<PackagePath>\lib\net6.0</PackagePath>
+		</Content>
+		<Content Include="Readme.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
 		</Content>
 	</ItemGroup>
 	
