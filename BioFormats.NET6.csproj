@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 8.4.0. Built with IKVM 8.11 for .NET6 x64, Arm64.</Description>
+    <Description>Bioformats 8.4.0. Built with IKVM 8.15 for .NET6 x64, Arm64.</Description>
     <PackageReleaseNotes>Bioformats 8.4.0 update.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
@@ -53,6 +53,6 @@
     <IkvmReference Include="google-collect-1.0.jar" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="IKVM" Version="8.11.0" />
+    <PackageReference Include="IKVM" Version="8.15.0" />
   </ItemGroup>
 </Project>
