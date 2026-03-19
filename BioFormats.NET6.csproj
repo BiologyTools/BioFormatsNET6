@@ -19,7 +19,14 @@
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
 	  <Authors>Erik Repo</Authors>
   </PropertyGroup>
-
+	<ItemGroup>
+		<Reference Include="bioformats_package.dll">
+			<HintPath>bioformats_package.dll</HintPath>
+		</Reference>
+		<Reference Include="google.collect.dll">
+			<HintPath>google.collect.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 	<ItemGroup>
 		<Content Include="bioformats_package.dll">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
