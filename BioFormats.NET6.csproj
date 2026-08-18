@@ -6,53 +6,52 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 8.5.0. Built with IKVM 8.15 for .NET6 x64, Arm64.</Description>
-    <PackageReleaseNotes>Bioformats 8.5.0 update.</PackageReleaseNotes>
+    <Description>Bioformats 9.0.0. Built with IKVM11 for .NET6 x64, Arm64.</Description>
+    <PackageReleaseNotes>Bioformats 9.0.0-pr update.</PackageReleaseNotes>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <RepositoryType></RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>8.5.0</Version>
-	<PackageVersion>8.5.0</PackageVersion>
+    <Version>9.0.0-pr</Version>
+	<PackageVersion>9.0.0-pr</PackageVersion>
     <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
     <PackageTags>bio-formats; ome; omero;</PackageTags>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
 	  <Authors>Erik Repo</Authors>
   </PropertyGroup>
-
 	<ItemGroup>
 		<Content Include="bioformats_package.dll">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<Pack>True</Pack>
-			<PackagePath>\lib\net6.0</PackagePath>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		  <Pack>True</Pack>
+		  <PackagePath>\lib\net6.0</PackagePath>
 		</Content>
 		<Content Include="google.collect.dll">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<Pack>True</Pack>
 			<PackagePath>\lib\net6.0</PackagePath>
 		</Content>
+  </ItemGroup>
+	<ItemGroup>
+		<IkvmReference Include="C:\Users\Erikr\Documents\GitHub\Bioformats\bioformats\artifacts\bioformats_package.jar">
+			<AssemblyName>bioformats_package</AssemblyName>
+			<AssemblyVersion>8.6.0</AssemblyVersion>
+			<AssemblyFileVersion>8.6.0</AssemblyFileVersion>
+			<DisableAutoAssemblyName>true</DisableAutoAssemblyName>
+			<DisableAutoAssemblyVersion>true</DisableAutoAssemblyVersion>
+			<FallbackAssemblyName>bioformats_package</FallbackAssemblyName>
+			<FallbackAssemblyVersion>8.6.0</FallbackAssemblyVersion>
+			<Compile>google-collect-1.0.jar</Compile>
+			<References>google-collect-1.0.jar</References>
+		</IkvmReference>
+		<IkvmReference Include="google-collect-1.0.jar" />
+	</ItemGroup>
+	<ItemGroup>
 		<Content Include="Readme.md">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</Content>
 	</ItemGroup>
-  <ItemGroup>
-    <IkvmReference Include="bioformats_package.jar">
-      <AssemblyName>bioformats_package</AssemblyName>
-      <AssemblyVersion>8.5.0</AssemblyVersion>
-      <AssemblyFileVersion>8.5.0</AssemblyFileVersion>
-      <DisableAutoAssemblyName>true</DisableAutoAssemblyName>
-      <DisableAutoAssemblyVersion>true</DisableAutoAssemblyVersion>
-      <FallbackAssemblyName>bioformats_package</FallbackAssemblyName>
-      <FallbackAssemblyVersion>8.5.0</FallbackAssemblyVersion>
-      <Aliases>bioformats_package</Aliases>
-      <Compile>google-collect-1.0.jar</Compile>
-      <References>google-collect-1.0.jar</References>
-    </IkvmReference>
-    <IkvmReference Include="google-collect-1.0.jar" />
-  </ItemGroup>
-	
-  <ItemGroup>
-    <PackageReference Include="IKVM" Version="8.15.0" />
-  </ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="IKVM11" Version="8.15.0" />
+	</ItemGroup>
 </Project>

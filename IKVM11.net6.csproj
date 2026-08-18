@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.Build.NoTargets/3.7.56">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageId>IKVM11</PackageId>
+    <Description>Java SE 11 Virtual Machine for .NET</Description>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.config</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <NoWarn>NU5118</NoWarn>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+    <PackIkvmJava>true</PackIkvmJava>
+    <PackIkvmLibs>true</PackIkvmLibs>
+    <PackIkvmDlls>true</PackIkvmDlls>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Erikr\Documents\GitHub\ikvm\src\IKVM\buildTransitive\**\*" Pack="true" PackagePath="buildTransitive\%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Include="C:\Users\Erikr\Documents\GitHub\ikvm\LICENSE.md" Pack="true" PackagePath="." />
+    <None Include="C:\Users\Erikr\Documents\GitHub\ikvm\README.md" Pack="true" PackagePath="." />
+    <None Include="C:\Users\Erikr\Documents\GitHub\ikvm\ikvm.snk" Pack="true" PackagePath="." />
+    <None Include="C:\Users\Erikr\Documents\GitHub\ikvm\src\IKVM.Java.Extensions\bin\Release\net6.0\runtimes\win\lib\net6.0\IKVM.Java.dll" Pack="true" PackagePath="runtimes\win\lib\net6.0\IKVM.Java.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Erikr\Documents\GitHub\ikvm\src\IKVM.MSBuild\IKVM.MSBuild.msbuildproj" SetTargetFramework="TargetFramework=$(TargetFramework)" SkipGetTargetFrameworkProperties="true">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <Version>[$(PackageVersion)]</Version>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Erikr\Documents\GitHub\ikvm\src\IKVM.Image\IKVM.Image.csproj" SetTargetFramework="TargetFramework=$(TargetFramework)" SkipGetTargetFrameworkProperties="true">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <Version>[$(PackageVersion)]</Version>
+    </ProjectReference>
+  </ItemGroup>
+
+  <Target Name="MakeGeneratedPropsFile" Outputs="$(IntermediateOutputPath)generated.props" BeforeTargets="_GetPackageFiles">
+    <ItemGroup>
+      <_GeneratedPropsFileLine Include="&lt;Project&gt;&lt;PropertyGroup&gt;&lt;IkvmVersion&gt;$(PackageVersion)&lt;/IkvmVersion&gt;&lt;/PropertyGroup&gt;&lt;/Project&gt;" />
+    </ItemGroup>
+    <WriteLinesToFile File="$(IntermediateOutputPath)generated.props" Lines="@(_GeneratedPropsFileLine)" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <ItemGroup>
+      <_PackageFiles Include="$(IntermediateOutputPath)generated.props" PackagePath="targets\generated.props" />
+    </ItemGroup>
+  </Target>
+
+  <Import Project="C:\Users\Erikr\Documents\GitHub\ikvm\IKVM.deps.targets" />
+  <Import Project="C:\Users\Erikr\Documents\GitHub\ikvm\IKVM.refs.targets" />
+</Project>
