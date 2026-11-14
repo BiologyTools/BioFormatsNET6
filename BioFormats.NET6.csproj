@@ -1,58 +1,48 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Description>Bioformats 9.0.0. Built with IKVM11 for .NET6 x64, Arm64.</Description>
-    <PackageReleaseNotes>Bioformats 9.0.0-pr update.</PackageReleaseNotes>
-    <PackageReadmeFile>Readme.md</PackageReadmeFile>
-    <RepositoryType></RepositoryType>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>9.0.0-pr</Version>
-	<PackageVersion>9.0.0-pr</PackageVersion>
-    <PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
-    <PackageTags>bio-formats; ome; omero;</PackageTags>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
-	  <Authors>Erik Repo</Authors>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageLicenseExpression>GPL-2.0-only</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<Description>Bioformats 9.0.0-rc2 Built with IKVM11 for .NET6 x64, Arm64.</Description>
+		<PackageReleaseNotes>Bioformats 9.0.0-rc2 update.</PackageReleaseNotes>
+		<PackageReadmeFile>Readme.md</PackageReadmeFile>
+		<RepositoryType></RepositoryType>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Version>9.0.0-rc2</Version>
+		<PackageVersion>9.0.0-rc2</PackageVersion>
+		<PackageProjectUrl>https://github.com/BiologyTools/BioFormatsNET6</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ome/bioformats</RepositoryUrl>
+		<PackageTags>bio-formats; ome; omero;</PackageTags>
+		<GenerateDocumentationFile>False</GenerateDocumentationFile>
+		<Authors>Erik Repo</Authors>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeIkvmReferencesInPackage</TargetsForTfmSpecificBuildOutput>
+		<Java11IkvmCompilerToolPath Condition="'$(Java11IkvmCompilerToolPath)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\ikvm\src\ikvmc\bin\$(Configuration)\net10.0\win-x64\'))</Java11IkvmCompilerToolPath>
+		<IkvmCacheDir Condition="'$(IkvmCacheDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\$(BaseIntermediateOutputPath)$(Configuration)\$(TargetFramework)\ikvm\cache\java11\'))</IkvmCacheDir>
+	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="bioformats_package.dll">
-			<HintPath>bioformats_package.dll</HintPath>
-		</Reference>
-		<Reference Include="google.collect.dll">
-			<HintPath>google.collect.dll</HintPath>
-		</Reference>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="bioformats_package.dll">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		  <Pack>True</Pack>
-		  <PackagePath>\lib\net6.0</PackagePath>
-		</Content>
-		<Content Include="google.collect.dll">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<Pack>True</Pack>
-			<PackagePath>\lib\net6.0</PackagePath>
-		</Content>
-  </ItemGroup>
-	<ItemGroup>
-		<IkvmReference Include="C:\Users\Erikr\Documents\GitHub\Bioformats\bioformats\artifacts\bioformats_package.jar">
+		<IkvmReference Include="bioformats_package.jar">
 			<AssemblyName>bioformats_package</AssemblyName>
-			<AssemblyVersion>8.6.0</AssemblyVersion>
-			<AssemblyFileVersion>8.6.0</AssemblyFileVersion>
+			<AssemblyVersion>9.0.0</AssemblyVersion>
+			<AssemblyFileVersion>9.0.0</AssemblyFileVersion>
 			<DisableAutoAssemblyName>true</DisableAutoAssemblyName>
 			<DisableAutoAssemblyVersion>true</DisableAutoAssemblyVersion>
 			<FallbackAssemblyName>bioformats_package</FallbackAssemblyName>
-			<FallbackAssemblyVersion>8.6.0</FallbackAssemblyVersion>
-			<Compile>google-collect-1.0.jar</Compile>
-			<References>google-collect-1.0.jar</References>
+			<FallbackAssemblyVersion>9.0.0</FallbackAssemblyVersion>
 		</IkvmReference>
 		<IkvmReference Include="google-collect-1.0.jar" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="bioformats_package.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>false</Pack>
+		</Content>
+		<Content Include="google.collect.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>false</Pack>
+		</Content>
 	</ItemGroup>
 	<ItemGroup>
 		<Content Include="Readme.md">
@@ -61,6 +51,28 @@
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="IKVM11" Version="8.15.0" />
+		<PackageReference Include="IKVM11" Version="8.15.1" />
 	</ItemGroup>
+	<Target Name="UseJava11IkvmCompiler" BeforeTargets="_CompileIkvmReferences">
+		<Error Text="The Java 11 IKVM compiler was not found at '$(Java11IkvmCompilerToolPath)'. Build the sibling ikvm repository or set Java11IkvmCompilerToolPath to the directory containing ikvmc.exe." Condition="!Exists('$(Java11IkvmCompilerToolPath)ikvmc.exe')" />
+		<PropertyGroup>
+			<IkvmCompilerToolPath>$(Java11IkvmCompilerToolPath)</IkvmCompilerToolPath>
+		</PropertyGroup>
+	</Target>
+	<Target Name="ExposeIkvmReferencesToProjectConsumers" AfterTargets="CompileIkvmReferences" BeforeTargets="GetTargetPathWithTargetPlatformMoniker;GetTargetPath">
+		<ItemGroup>
+			<TargetPathWithTargetPlatformMoniker Include="@(IkvmReferenceItem->'%(CachePath)')" Condition="Exists('%(IkvmReferenceItem.CachePath)')">
+				<ReferenceSourceTarget>ResolveAssemblyReference</ReferenceSourceTarget>
+				<TargetPlatformMoniker>$(TargetPlatformMoniker)</TargetPlatformMoniker>
+				<TargetPlatformIdentifier>$(TargetPlatformIdentifier)</TargetPlatformIdentifier>
+				<TargetFrameworkIdentifier>$(TargetFrameworkIdentifier)</TargetFrameworkIdentifier>
+				<TargetFrameworkVersion>$(TargetFrameworkVersion.TrimStart('vV'))</TargetFrameworkVersion>
+			</TargetPathWithTargetPlatformMoniker>
+		</ItemGroup>
+	</Target>
+	<Target Name="IncludeIkvmReferencesInPackage" DependsOnTargets="CompileIkvmReferences">
+		<ItemGroup>
+			<BuildOutputInPackage Include="@(IkvmReferenceItem->'%(CachePath)')" Condition="Exists('%(IkvmReferenceItem.CachePath)')" />
+		</ItemGroup>
+	</Target>
 </Project>
